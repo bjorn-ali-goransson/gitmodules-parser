@@ -9,22 +9,19 @@ function gitmodules_get_all($dir = '.'){
     $line = $contents[$i];
       
     if(($submodule_name = gitmodules_get_name($line))){
-      $submodule_path = gitmodules_get_path($contents[++$i]);
-      $submodule_url = gitmodules_get_url($contents[++$i]);
-        
-      $submodule_author = gitmodules_get_author($submodule_url);
-      $submodule_repo = gitmodules_get_repo($submodule_url);
-
       $submodule = new stdClass;
       
       $submodule->name = $submodule_name;
-      $submodule->path = $submodule_path;
-      $submodule->url = $submodule_url;
-      $submodule->author = $submodule_author;
-      $submodule->repo = $submodule_repo;
+      $submodule->path = gitmodules_get_path($contents[++$i]);
+      $submodule->url = gitmodules_get_url($contents[++$i]);
       
       $submodule->is_github = strpos($submodule->url, '://github.com') !== FALSE;
-
+      
+      if($submodule->is_github){
+        $submodule->author = gitmodules_get_author($submodule->url);
+        $submodule->repo = gitmodules_get_repo($submodule->url);
+      }
+      
       $submodules[] = $submodule;
     }
   }
