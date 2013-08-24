@@ -1,4 +1,7 @@
-php-github-submodule-updater
+PHP .gitmodules updater
 ============================
 
-API for updates github submodules to latest version of chosen branch.
+API for updating github submodules to latest version of chosen branch.
+
+Functions
+----------------------------
