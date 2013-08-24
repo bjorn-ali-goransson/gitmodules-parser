@@ -74,7 +74,7 @@ function gitmodules_get_author($submodule_url){
 }
 
 function gitmodules_get_repo($submodule_url){
-  if(preg_match('@://github.com/[^/]+/([^.]+)\.git@', $submodule_url, $matches)){
+  if(preg_match('@://github.com/[^/]+/([^./]+)@', $submodule_url, $matches)){
     return $matches[1];
   } else {
     return FALSE;
