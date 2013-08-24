@@ -1,6 +1,6 @@
 <?php
 
-function gitmodules_get_all($dir){
+function gitmodules_get_all($dir = '.'){
   $contents = explode("\n", file_get_contents($dir . '/.gitmodules'));
 
   $submodules = array();
@@ -32,8 +32,8 @@ function gitmodules_get_all($dir){
   return $submodules;
 }
 
-function gitmodules_get_by_name($name){
-  $submodules = gitmodules_get_all();
+function gitmodules_get_by_name($name, $dir = '.'){
+  $submodules = gitmodules_get_all($dir);
 
   foreach($submodules as $submodule){
     if($submodule->name == $name){
