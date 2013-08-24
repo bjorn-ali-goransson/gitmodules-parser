@@ -1,7 +1,7 @@
-PHP .gitmodules updater
+PHP .gitmodules parser
 ============================
 
-API for updating github submodules to latest version of chosen branch.
+Small API for parsing .gitmodules file.
 
 Submodule object
 ----------------------------
