@@ -16,7 +16,7 @@ function gitmodules_get_all($dir = '.'){
       $submodule->path = gitmodules_get_path($contents[++$i]);
       $submodule->url = gitmodules_get_url($contents[++$i]);
       
-      $submodule->file_exists = file_exists(dirname($submodule->gitmodules_dir) . '/' . $submodule->path);
+      $submodule->dir_exists = file_exists(dirname($submodule->gitmodules_dir) . '/' . $submodule->path);
       
       $submodule->is_github = strpos($submodule->url, '://github.com') !== FALSE;
       
