@@ -21,10 +21,10 @@ The API returns instances of [stdClass](http://lmgtfy.com/?q=stdClass) with the 
 Functions
 ----------------------------
 
-### gitmodules_get_all($dir = NULL)
+### gitmodules_get_all($dir = '.')
 
 Returns an array of all Submodule objects referenced in the ```.gitmodules``` file located in the directory ```$dir``` (defaults to [current working directory](http://php.net/manual/en/function.getcwd.php). No trailing slash is necessary.
 
-### gitmodules_get_all($name, $dir = NULL)
+### gitmodules_get_all($name, $dir = '.')
 
 Returns the Submodule objects named $name referenced in the ```.gitmodules``` file located in the directory ```$dir``` (defaults to [current working directory](http://php.net/manual/en/function.getcwd.php). No trailing slash is necessary.

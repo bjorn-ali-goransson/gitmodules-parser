@@ -1,16 +1,12 @@
 <?php
 
-function gitmodules_get_all($dir = NULL){
-  if($dir == NULL){
-    $dir = getcwd();
-  }
-  
+function gitmodules_get_all($dir = '.'){
   $dir = rtrim($dir, '/\\');
 
   $gitmodules_path = $dir . '/.gitmodules';
   
   $contents = explode("\n", file_get_contents($gitmodules_path));
-
+  
   $submodules = array();
 
   for($i = 0; $i < count($contents); $i++){
@@ -46,11 +42,7 @@ function gitmodules_get_all($dir = NULL){
   return $submodules;
 }
 
-function gitmodules_get_by_name($name, $dir = NULL){
-  if($dir == NULL){
-    $dir = getcwd();
-  }
-  
+function gitmodules_get_by_name($name, $dir = '.'){
   $submodules = gitmodules_get_all($dir);
 
   foreach($submodules as $submodule){
