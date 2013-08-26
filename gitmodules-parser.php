@@ -15,13 +15,13 @@ function gitmodules_get_all($dir = '.'){
     if(($submodule_name = gitmodules_get_name($line))){
       $submodule = new stdClass;
       
-      $submodule->gitmodules_path = $gitmodules_path;
+      $submodule->parent_gitmodules_path = $gitmodules_path;
 
       $submodule->name = $submodule_name;
       $submodule->path = gitmodules_get_path($contents[++$i]);
       $submodule->url = gitmodules_get_url($contents[++$i]);
       
-      $submodule->dir_exists = file_exists(dirname($submodule->gitmodules_path) . '/' . $submodule->path);
+      $submodule->dir_exists = file_exists(dirname($submodule->parent_gitmodules_path) . '/' . $submodule->path);
       
       $submodule->is_github = strpos($submodule->url, '://github.com') !== FALSE;
       
