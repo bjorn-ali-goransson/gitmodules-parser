@@ -1,9 +1,9 @@
 <?php
 
-function gitmodules_get_all($dir = '.'){
+function gitmodules_get_all($dir = ''){
   $dir = rtrim($dir, '/\\');
 
-  $gitmodules_path = $dir . '/.gitmodules';
+  $gitmodules_path = ($dir != '' ? './' : '') . '.gitmodules';
   
   $contents = explode("\n", file_get_contents($gitmodules_path));
   
@@ -15,13 +15,13 @@ function gitmodules_get_all($dir = '.'){
     if(($submodule_name = gitmodules_get_name($line))){
       $submodule = new stdClass;
       
-      $submodule->parent_gitmodules_path = $gitmodules_path;
+      $submodule->parent_path = $dir;
 
       $submodule->name = $submodule_name;
       $submodule->local_path = gitmodules_get_path($contents[++$i]);
       $submodule->url = gitmodules_get_url($contents[++$i]);
       
-      $submodule->path = $submodule->parent_path . '/' . $submodule->local_path;
+      $submodule->path = ($submodule->parent_path != '' ? $submodule->parent_path . '/' : '') . $submodule->local_path;
       $submodule->path_exists = file_exists($submodule->path);
       
       if($submodule->path_exists){
@@ -42,7 +42,7 @@ function gitmodules_get_all($dir = '.'){
   return $submodules;
 }
 
-function gitmodules_get_by_name($name, $dir = '.'){
+function gitmodules_get_by_name($name, $dir = ''){
   $submodules = gitmodules_get_all($dir);
 
   foreach($submodules as $submodule){
