@@ -15,7 +15,7 @@ function gitmodules_get_all($dir = NULL){
 
   for($i = 0; $i < count($contents); $i++){
     $line = $contents[$i];
-      
+    
     if(($submodule_name = gitmodules_get_name($line))){
       $submodule = new stdClass;
       
