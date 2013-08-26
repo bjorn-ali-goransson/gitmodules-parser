@@ -1,7 +1,11 @@
 <?php
 
 function gitmodules_get_all($dir = '.'){
-  $contents = explode("\n", file_get_contents($dir . '/.gitmodules'));
+  $dir = rtrim($dir, '/\\');
+
+  $gitmodules_path = $dir . '/.gitmodules';
+  
+  $contents = explode("\n", file_get_contents($gitmodules_path));
 
   $submodules = array();
 
