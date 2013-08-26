@@ -8,7 +8,7 @@ Submodule object
 
 The API returns instances of [stdClass](http://lmgtfy.com/?q=stdClass) with the following properties:
 
-* ```$submodule->parent_gitmodules_path``` is the path to the .gitmodules file where this submodule is mapped. Used for nested submodules, and translating ```$submodule->path``` to a real path.
+* ```$submodule->parent_path``` is the path to the directory containing the .gitmodules file where this submodule is mapped. Used for nested submodules, and translating ```$submodule->path``` to a real path.
 * ```$submodule->name``` is the name of the submodule. Not really used for anything.
 * ```$submodule->path``` is the local, relative path of the folder that has the submodule contents.
 * ```$submodule->url``` is the URL to the repo.
