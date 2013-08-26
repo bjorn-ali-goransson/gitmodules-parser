@@ -3,7 +3,7 @@
 function gitmodules_get_all($dir = ''){
   $dir = rtrim($dir, '/\\');
 
-  $gitmodules_path = ($dir != '' ? './' : '') . '.gitmodules';
+  $gitmodules_path = ($dir != '' ? $dir : '.') . '/.gitmodules';
   
   $contents = explode("\n", file_get_contents($gitmodules_path));
   
