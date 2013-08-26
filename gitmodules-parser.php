@@ -13,6 +13,7 @@ function gitmodules_get_all($dir = '.'){
     $line = $contents[$i];
       
     if(($submodule_name = gitmodules_get_name($line))){
+      $submodule = new stdClass;
       
       $submodule->gitmodules_path = $gitmodules_path;
 
