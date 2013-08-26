@@ -13,7 +13,7 @@ The API returns instances of [stdClass](http://lmgtfy.com/?q=stdClass) with the 
 * ```$submodule->path``` is the local, relative path of the folder that has the submodule contents.
 * ```$submodule->url``` is the URL to the repo.
 * ```$submodule->path_exists``` is true if the path to the submodule exists.
-* ```$submodule->gitmodules_exists``` is true if the submodules own .gitmodules file exists. Will be unset if path_exists is false.
+* ```$submodule->gitmodules_exists``` is true if the submodules own .gitmodules file exists. Will of course be false if path_exists is false.
 * ```$submodule->is_github``` is true if the submodule points to a GitHub repo.
 * ```$submodule->author``` is the GitHub username who owns the repo (url is parsed by Regex). Will be unset if not a GitHub repo.
 * ```$submodule->repo``` is the GitHub repo name (url is parsed by Regex). Will be unset if not a GitHub repo.
