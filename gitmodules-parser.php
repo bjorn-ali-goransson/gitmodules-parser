@@ -66,7 +66,7 @@ function gitmodules_get_name($line){
 
 function gitmodules_get_path($line){
   if(preg_match('@\s+path\s+=\s+(.+)@', $line, $matches)){
-    return $matches[1];
+    return trim($matches[1]);
   } else {
     return FALSE;
   }
