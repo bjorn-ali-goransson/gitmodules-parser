@@ -1,7 +1,7 @@
 PHP .gitmodules parser
 ============================
 
-Small API for parsing .gitmodules file.
+A (very small) API for parsing .gitmodules files.
 
 Submodule object
 ----------------------------
