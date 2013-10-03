@@ -2,6 +2,10 @@
 
 function gitmodules_get_all($dir = ''){
   $dir = rtrim($dir, '/\\');
+  
+  if(!file_exists($dir != '' ? $dir : '.')){
+    throw new Exception("Could not find directory $dir");
+  }
 
   $gitmodules_path = ($dir != '' ? $dir : '.') . '/.gitmodules';
   
