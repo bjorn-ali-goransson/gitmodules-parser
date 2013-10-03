@@ -10,7 +10,7 @@ function gitmodules_get_all($dir = ''){
   $gitmodules_path = ($dir != '' ? $dir : '.') . '/.gitmodules';
   
   if(!file_exists($gitmodules_path)){
-    throw new Exception("Could not find .gitmodules in $dir");
+    return array();
   }
   
   $contents = explode("\n", file_get_contents($gitmodules_path));
